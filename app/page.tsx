@@ -303,7 +303,7 @@ export default function LandingPage() {
 
             <blockquote className="relative">
               <div className="text-4xl text-red-600 absolute -top-10 left-0">
-                "
+                &quot;
               </div>
               <p className="text-xl italic text-zinc-300 mb-6">
                 Working with this developer was like unleashing a force of
@@ -316,7 +316,7 @@ export default function LandingPage() {
                 <p className="text-sm">CTO, TechVenture Inc.</p>
               </footer>
               <div className="text-4xl text-red-600 absolute -bottom-10 right-0">
-                "
+                &quot;
               </div>
             </blockquote>
           </div>
