@@ -103,7 +103,7 @@ export default function LandingPage() {
                 className="bg-red-700 hover:bg-red-800 text-white"
                 onClick={() => {
                   console.log("View My Work button clicked");
-                  postMessage({ type: "trackEvent", event: "view_work" });
+                  postMessage("aaaa");
                 }}
               >
                 VIEW MY WORK <ChevronRight className="ml-2 h-4 w-4" />
