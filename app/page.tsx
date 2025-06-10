@@ -88,16 +88,65 @@ export default function LandingPage() {
               applications that stand out from the mainstream.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-red-700 hover:bg-red-800 text-white">
-                VIEW MY WORK <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                className="border-zinc-700 hover:bg-zinc-800/50"
-              >
-                CONTACT ME
-              </Button>
+              <Link href="/projects">
+                <Button
+                  className="bg-red-700 hover:bg-red-800 text-white"
+                  onClick={() => {
+                    postMessage({ type: "trackEvent", event: "view_work" });
+                  }}
+                >
+                  VIEW MY WORK <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  className="border-zinc-700 hover:bg-zinc-800/50"
+                >
+                  CONTACT ME
+                </Button>
+              </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="py-20 bg-zinc-900/50 border-y border-zinc-800">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link href="/about" className="group">
+              <div className="p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-red-900 transition-all">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-red-600 transition-colors">
+                  About Me
+                </h3>
+                <p className="text-zinc-400">
+                  Learn about my journey and development philosophy.
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/skills" className="group">
+              <div className="p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-red-900 transition-all">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-red-600 transition-colors">
+                  Skills
+                </h3>
+                <p className="text-zinc-400">
+                  Explore my technical expertise and capabilities.
+                </p>
+              </div>
+            </Link>
+
+            <Link href="/projects" className="group">
+              <div className="p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-red-900 transition-all">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-red-600 transition-colors">
+                  Projects
+                </h3>
+                <p className="text-zinc-400">
+                  Check out my latest mobile app creations.
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
