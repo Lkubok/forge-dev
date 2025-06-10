@@ -99,16 +99,16 @@ export default function LandingPage() {
               applications that stand out from the mainstream.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/projects">
-                <Button
-                  className="bg-red-700 hover:bg-red-800 text-white"
-                  onClick={() => {
-                    postMessage({ type: "trackEvent", event: "view_work" });
-                  }}
-                >
-                  VIEW MY WORK <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+              {/* <Link href="/projects"> */}
+              <Button
+                className="bg-red-700 hover:bg-red-800 text-white"
+                onClick={() => {
+                  postMessage({ type: "trackEvent", event: "view_work" });
+                }}
+              >
+                VIEW MY WORK <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+              {/* </Link> */}
               <Link href="/contact">
                 <Button
                   variant="outline"
