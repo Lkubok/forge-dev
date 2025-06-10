@@ -16,6 +16,15 @@ import {
 } from "lucide-react";
 
 export default function LandingPage() {
+  window.addEventListener(
+    "message",
+    (event) => {
+      // if (event.origin !== "http://example.org:8080") return;
+      alert("Received message from iframe:" + JSON.stringify(event));
+    },
+    false
+  );
+
   return (
     <div className="min-h-screen bg-black text-zinc-200">
       {/* Header */}
