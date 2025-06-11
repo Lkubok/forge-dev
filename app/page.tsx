@@ -16,9 +16,10 @@ import {
   Music,
   Flame,
 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function LandingPage() {
+  const [counter, setCounter] = useState(0);
   // window.addEventListener(
   //   "message",
   //   (event) => {
@@ -29,10 +30,28 @@ export default function LandingPage() {
   // );
 
   useEffect(() => {
+    const handleMessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        console.log("Received message from React Native:", data);
+      } catch (error) {
+        console.error("Error parsing message from React Native:", error);
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
+  useEffect(() => {
     // Listen for messages from React Native
     reactNativeBridge.onMessage((message) => {
       console.log("Received message from React Native:", message);
       alert("Received message from React Native:" + message);
+      setCounter((prev) => prev + 1);
       // Handle the message from React Native
     });
 
@@ -48,6 +67,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-black text-zinc-200">
       {/* Header */}
+      <div>{counter}</div>
       <header className="border-b border-zinc-800">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
