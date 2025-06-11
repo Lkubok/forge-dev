@@ -1,9 +1,9 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { reactNativeBridge } from "./reactNativeBridge";
 import {
   Code2,
   Smartphone,
@@ -15,6 +15,7 @@ import {
   Music,
   Flame,
 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function LandingPage() {
   // window.addEventListener(
@@ -25,6 +26,22 @@ export default function LandingPage() {
   //   },
   //   false
   // );
+
+  useEffect(() => {
+    // Listen for messages from React Native
+    reactNativeBridge.onMessage((message) => {
+      console.log("Received message from React Native:", message);
+      // Handle the message from React Native
+    });
+
+    // Send a message to React Native
+    reactNativeBridge.sendMessage({
+      type: "INITIALIZED",
+      data: {
+        /* your data */
+      },
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-zinc-200">
