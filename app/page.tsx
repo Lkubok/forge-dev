@@ -68,23 +68,23 @@ export default function LandingPage() {
     };
   }, []);
 
-  useEffect(() => {
-    // Listen for messages from React Native
-    reactNativeBridge.onMessage((message) => {
-      console.log("Received message from React Native:", message);
-      alert("Received message from React Native:" + message);
-      setCounter((prev) => prev + 1);
-      // Handle the message from React Native
-    });
+  // useEffect(() => {
+  //   // Listen for messages from React Native
+  //   reactNativeBridge.onMessage((message) => {
+  //     console.log("Received message from React Native:", message);
+  //     alert("Received message from React Native:" + message);
+  //     setCounter((prev) => prev + 1);
+  //     // Handle the message from React Native
+  //   });
 
-    // Send a message to React Native
-    reactNativeBridge.sendMessage({
-      type: "INITIALIZED",
-      data: {
-        /* your data */
-      },
-    });
-  }, []);
+  //   // Send a message to React Native
+  //   reactNativeBridge.sendMessage({
+  //     type: "INITIALIZED",
+  //     data: {
+  //       /* your data */
+  //     },
+  //   });
+  // }, []);
 
   return (
     <div className="min-h-screen bg-black text-zinc-200">
@@ -164,7 +164,7 @@ export default function LandingPage() {
                 className="bg-red-700 hover:bg-red-800 text-white"
                 onClick={() => {
                   console.log("View My Work button clicked");
-                  postMessage("aaaa");
+                  // postMessage("aaaa");
                   reactNativeBridge.sendMessage({ someKey: "test message" });
                 }}
               >
