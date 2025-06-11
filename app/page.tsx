@@ -31,6 +31,7 @@ export default function LandingPage() {
     // Listen for messages from React Native
     reactNativeBridge.onMessage((message) => {
       console.log("Received message from React Native:", message);
+      alert("Received message from React Native:" + message);
       // Handle the message from React Native
     });
 
@@ -121,6 +122,7 @@ export default function LandingPage() {
                 onClick={() => {
                   console.log("View My Work button clicked");
                   postMessage("aaaa");
+                  reactNativeBridge.sendMessage({ someKey: "test message" });
                 }}
               >
                 VIEW MY WORK <ChevronRight className="ml-2 h-4 w-4" />
