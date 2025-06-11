@@ -29,13 +29,35 @@ export default function LandingPage() {
   //   false
   // );
 
+  // useEffect(() => {
+  //   const handleMessage = (event) => {
+  //     try {
+  //       const data = JSON.parse(event.data);
+  //       console.log("Received message from React Native:", data);
+  //     } catch (error) {
+  //       console.error("Error parsing message from React Native:", error);
+  //     }
+  //   };
+
+  //   window.addEventListener("message", handleMessage);
+
+  //   return () => {
+  //     window.removeEventListener("message", handleMessage);
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const handleMessage = (event) => {
+    const handleMessage = (event: MessageEvent) => {
       try {
-        const data = JSON.parse(event.data);
+        const data = event.data;
         console.log("Received message from React Native:", data);
+
+        if (data.type === "CHANGE_STATE") {
+          // setState(data.payload); // Update the state based on the message
+          setCounter((prev) => prev + 1);
+        }
       } catch (error) {
-        console.error("Error parsing message from React Native:", error);
+        console.error("Error handling message from React Native:", error);
       }
     };
 
